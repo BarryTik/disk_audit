@@ -23,7 +23,7 @@ optional arguments:
 ```
 
 ## outputs
-`disk_audit.csv` in the current working directory.
+`disk_audit_DATETIME-NOW.csv` in the user specified working directory.
 ```
 size,filepath,owner,created,modified,accessed
 514.4MB,/full/path/to/file.txt,user001,2023-05-18,2023-05-18,2024-01-09
