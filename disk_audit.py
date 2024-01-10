@@ -37,7 +37,8 @@ for root, dirs, files in os.walk(base_path):
             access_time = os.path.getatime(filepath)
             data.append([size, filepath, creation_time, modification_time, access_time])
         except Exception as err:
-            print(err)
+            with open("disk_audit.err", "a+") as file:
+                file.write(f"{err}\n")
 
 df = pd.DataFrame(data, columns=['size','filepath','created','modified','accessed'])
 df = df.sort_values(by='size', ascending=False)

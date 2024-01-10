@@ -1,1 +1,3 @@
 disk_audit.csv
+disk_audit.err
+slurm*.out
