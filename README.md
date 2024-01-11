@@ -6,7 +6,7 @@
 
 ```
 usage: disk_audit.py [-h] [--min-days MIN_DAYS] [--min-size MIN_SIZE]
-                     [--output-dir OUTPUT_DIR]
+                     [--output-dir OUTPUT_DIR] [--user USER]
                      directory
 
 positional arguments:
@@ -17,9 +17,10 @@ optional arguments:
   --min-days MIN_DAYS, --days MIN_DAYS
                         Only show files older than this many days old. Default 0 days.
   --min-size MIN_SIZE, --size MIN_SIZE
-                        Only show files larger than this many bytes. Default 0bytes.
+                        Only show files larger than this many bytes. Default 0 bytes.
   --output-dir OUTPUT_DIR, -o OUTPUT_DIR
                         Filepath of output directory. Default 'outputs'
+  --user USER, -u USER  Include only files owned by this user
 ```
 
 ## outputs

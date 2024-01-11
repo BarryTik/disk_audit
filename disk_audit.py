@@ -21,6 +21,7 @@ parser.add_argument("directory", help="The directory to audit")
 parser.add_argument("--min-days", "--days", help="Only show files older than this many days old. Default 0 days.", default=0, type=int)
 parser.add_argument("--min-size", "--size", help="Only show files larger than this many bytes. Default 0 bytes.", default=0, type=int)
 parser.add_argument("--output-dir", "-o", help="Filepath of output directory. Default 'outputs'", default="outputs")
+parser.add_argument("--user", "-u", help="Include only files owned by this user")
 args = parser.parse_args()
 
 base_path = os.path.abspath(args.directory)
@@ -54,5 +55,8 @@ df['created'] = df['created'].apply(lambda x: date.fromtimestamp(x))
 df['modified'] = df['modified'].apply(lambda x: date.fromtimestamp(x))
 df['accessed'] = df['accessed'].apply(lambda x: date.fromtimestamp(x))
 df['size'] = df['size'].apply(lambda x: format_bytes(x))
+
+if args.user:
+    df = df.loc[df['owner'] == args.user]
 
 df.to_csv(out_file, index=False)
